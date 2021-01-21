@@ -1,6 +1,6 @@
 React hooks are a great addition to React which has completely changed how we write code. Hooks were introduced in React starting with version 16.8.0.
 
-## useState Hook
+##useState Hook
 
 This is the first hook provided by React which allows us to use state inside the functional component.
 The useState hook accepts a parameter which is the initial value of the state.
