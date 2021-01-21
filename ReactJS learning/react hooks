@@ -1,1 +1,33 @@
+/*       
+React hooks are a great addition to React which has completely changed how we write code. Hooks were introduced in React starting with version 16.8.0.
+## useState Hook
+This is the first hook provided by React which allows us to use state inside the functional component.
+The useState hook accepts a parameter which is the initial value of the state.
+In class-based components, state is always an object but when using useState, you can provide any value as the initial value like number, string, boolean, object, array, null etc.
+The useState hook returns an array whose first value is the current value of the state and second value is the function which we will use to update the state similar to setState method.
+*/
+import React from 'react';
+import ReactDOM from 'react-dom';
 
+class App extends React.Component {
+  state = {
+    counter: 0
+  };
+
+  handleOnClick = () => {
+    this.setState(prevState => ({
+      counter: prevState.counter + 1
+    }));
+  };
+
+  render() {
+    return (
+      <div>
+        <p>Counter value is: {this.state.counter} </p>
+        <button onClick={this.handleOnClick}>Increment</button>
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(<App />, document.getElementById('root'));
