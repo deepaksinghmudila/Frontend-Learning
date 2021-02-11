@@ -1,3 +1,91 @@
 Link:
 
 https://www.robinwieruch.de/react-higher-order-components
+
+Conditional Rendering:
+
+/*********************************************************************************************************************************/
+function TodoList({ todos, isLoadingTodos }) {
+  if (isLoadingTodos) {
+    return (
+      <div>
+        <p>Loading todos ...</p>
+      </div>
+    );
+  }
+ 
+  if (!todos) {
+    return null;
+  }
+ 
+  if (!todos.length) {
+    return (
+      <div>
+        <p>You have no Todos.</p>
+      </div>
+    );
+  }
+ 
+  return (
+    <div>
+      {todos.map(todo => <TodoItem key={todo.id} todo={todo} />)}
+    </div>
+  );
+}
+/***************************************************************************************************************************/
+
+Using HOC:
+ 
+/*****  Checks for the null item *****/ 
+
+const withTodosNull = (Component) => (props) =>
+  !props.todos
+    ? null
+    : <Component { ...props } />
+
+
+ /******** Checks it it's length is zero *****************/
+ 
+const withTodosEmpty = (Component) => (props) =>
+  !props.todos.length
+    ? <div><p>You have no Todos.</p></div>
+    : <Component { ...props } />
+ 
+************ Shows loading status ***************************/ 
+
+const withLoadingIndicator = (Component) => (props) =>
+  props.isLoadingTodos
+    ? <div><p>Loading todos ...</p></div>
+    : <Component { ...props } />  
+ 
+ 
+/**************** the ToDoList function *******************/ 
+
+function TodoList({ todos, isLoadingTodos }) {
+  return (
+    <div>
+      {todos.map(todo => <TodoItem key={todo.id} todo={todo} />)}
+    </div>
+  );
+} 
+  
+/*****************************************************************/  
+const TodoListOne = withTodosEmpty(TodoList);
+const TodoListTwo = withTodosNull(TodoListOne);
+const TodoListThree = withLoadingIndicator(TodoListTwo); 
+OR
+const TodoListWithConditionalRendering = withLoadingIndicator(withTodosNull(withTodosEmpty(TodoList)));
+OR
+const TodoListWithConditionalRendering = (withLoadingIndicator) => (withTodosNull) => (withTodoEmpty(TodoList) );
+/*****************************************************************/  
+ 
+function App(props) {
+  return (
+    <TodoListWithConditionalRendering
+      todos={props.todos}
+      isLoadingTodos={props.isLoadingTodos}
+    />
+  );
+}
+
+
