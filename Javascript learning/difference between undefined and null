@@ -1,0 +1,9 @@
+Undefined value: A value that is not defined and has no keyword is known as undefined value. For example:
+
+    int number;//Here, a number has an undefined value.  
+    
+    
+    
+  Null value: A value that is explicitly specified by the keyword "null" is known as a null value. For example:
+  
+    String str=null;//Here, str has a null value.  
