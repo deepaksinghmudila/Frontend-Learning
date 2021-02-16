@@ -1,0 +1,17 @@
+What is the use of Void(0)?
+
+Void(0) is used to prevent the page from refreshing and parameter "zero" is passed while calling.
+
+Void(0) is used to call another method without refreshing the page. 
+
+
+How to find operating system in the client machine using JavaScript?
+
+The 'Navigator.appversion' is used to find the name of the operating system in the client machine. 
+
+
+Explain window.onload and onDocumentReady?
+
+The onload function is not run until all the information on the page is loaded. This leads to a substantial delay before any code is executed.
+
+onDocumentReady loads the code just after the DOM is loaded. This allows early manipulation of the code. 
