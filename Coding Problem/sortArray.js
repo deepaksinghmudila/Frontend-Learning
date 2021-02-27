@@ -35,7 +35,6 @@ sortArray(arr);
 /*****************************************************************************************************/ 
 /******* The following approach is swapping one. It is variant of Dutch Flag Problem  *****************/
 
-
 function sortArray(arr) {
   
   let low = 0; let mid = 0; let high = arr.length - 1;
