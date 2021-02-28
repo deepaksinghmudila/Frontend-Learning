@@ -34,7 +34,7 @@ sortArray(arr);
 
 /*****************************************************************************************************/ 
 /******* The following approach is swapping one. It is variant of Dutch Flag Problem  *****************/
-
+Find the repeating and the missing
 function sortArray(arr) {
   
   let low = 0; let mid = 0; let high = arr.length - 1;
