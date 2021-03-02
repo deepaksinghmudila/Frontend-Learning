@@ -25,7 +25,7 @@ function find(arr) {
 
     console.log("Missing " + missing + " Repeating ",repeat);
 }
-/********************  Time Complexity: O(n*Log(n)) *******************/
+/******************** Merge two sorted Arrays without extra space Time Complexity: O(n*Log(n)) *******************/
 /************************************************************/
 let arr = [8, 4, 4, 3, 1, 2, 6, 7];
 find(arr);
